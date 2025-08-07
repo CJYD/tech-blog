@@ -28,7 +28,7 @@ export default function EmailSubscribe() {
       } else {
         setStatus('error');
       }
-    } catch (error) {
+    } catch {
       setStatus('error');
     }
 

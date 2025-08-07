@@ -5,8 +5,8 @@
   # Directory to run the build command in
   base = ""
   
-  # Build command
-  command = "npm run build"
+  # Build command - ensuring clean install
+  command = "npm ci && npm run build"
   
   # Directory that contains the deploy-ready files
   publish = ".next"
