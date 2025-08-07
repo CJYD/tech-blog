@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { siteConfig } from '@/lib/site-config';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -9,7 +10,7 @@ export default function Footer() {
         <div className="relative flex items-center justify-center">
           {/* Left side - Copyright (absolute positioned) */}
           <div className="absolute left-0 text-xs text-gray-600 hidden sm:block">
-            © {currentYear} Christian Duque
+            © {currentYear} {siteConfig.author.name}
           </div>
 
           {/* Center - Nav links (always centered) */}
@@ -28,7 +29,7 @@ export default function Footer() {
           {/* Right side - Social links (absolute positioned) */}
           <div className="absolute right-0 flex items-center gap-4 text-xs hidden sm:flex">
             <a 
-              href="https://github.com" 
+              href={siteConfig.social.github} 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-gray-900 transition-colors"
@@ -36,7 +37,7 @@ export default function Footer() {
               GitHub
             </a>
             <a 
-              href="https://twitter.com" 
+              href={siteConfig.social.twitter} 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-gray-900 transition-colors"

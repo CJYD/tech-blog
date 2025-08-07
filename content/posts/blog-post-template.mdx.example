@@ -1,79 +1,188 @@
 ---
-title: "Your Blog Post Title Here"
-subtitle: "Optional subtitle for your post"
-date: "2024-01-20"
-excerpt: "A brief description of your blog post that will appear in blog listings. Keep it engaging and around 2-3 sentences."
-tags: ["Tag1", "Tag2", "Tag3"]
-readTime: "5 min read"
+title: 'Your Blog Post Title Here'
+subtitle: 'An optional subtitle that provides more context'
+date: '2024-01-01'
+author: 'Christian Duque'
+excerpt: 'A brief description of your blog post that will appear in the blog list and as a preview. Keep it engaging and around 150-200 characters.'
+tags: ['tag1', 'tag2', 'tag3']
+published: true
+readTime: '5 min read'
+coverImage: '/images/your-cover-image.jpg'
 ---
 
-# Your Blog Post Title Here
+# Introduction
 
-Start your blog post with an engaging introduction that hooks the reader and explains what they'll learn.
+Start with a compelling introduction that hooks your readers. Explain what problem you're solving or what interesting topic you're exploring. Keep it concise but engaging.
 
-## First Main Section
+## Main Section 1
 
-Your content goes here. You can use all markdown features:
+### Subsection 1.1
 
-- Bullet points
-- **Bold text**
-- *Italic text*
-- [Links](https://example.com)
+Your main content goes here. You can use all MDX features including:
 
-### Subsection
+- **Bold text** for emphasis
+- *Italic text* for subtle emphasis
+- `inline code` for technical terms
+- [Links](https://example.com) to external resources
 
-More detailed content within your section.
-
-## Code Examples
+### Subsection 1.2
 
 You can include code blocks with syntax highlighting:
 
 ```javascript
-// JavaScript example
-function greet(name) {
-  console.log(`Hello, ${name}!`);
+// Example code block
+function exampleFunction(param) {
+  const result = param * 2;
+  console.log(`Result: ${result}`);
+  return result;
 }
 ```
 
-```python
-# Python example
-def greet(name):
-    print(f"Hello, {name}!")
-```
+## Main Section 2
 
-## Including Images
+### Using Lists
 
-![Alt text for your image](/images/blog/your-image.jpg)
-
-## Quotes
-
-> "You can include inspirational quotes or important callouts using blockquotes."
-> - Author Name
-
-## Tables
-
-| Feature | Description | Status |
-|---------|-------------|--------|
-| Item 1  | Description | ✅ |
-| Item 2  | Description | 🚧 |
-| Item 3  | Description | ❌ |
-
-## Lists
-
-### Ordered List
+Ordered lists:
 1. First item
 2. Second item
 3. Third item
 
-### Unordered List
-- First item
-- Second item
-- Third item
+Unordered lists:
+- Item one
+- Item two
+- Item three
 
-## Conclusion
+### Including Images
 
-Wrap up your post with a summary of key points and potentially a call to action.
+You can include images using standard markdown:
+
+![Alt text for accessibility](/images/example-image.jpg)
+
+### Tables
+
+You can create tables for structured data:
+
+| Column 1 | Column 2 | Column 3 |
+|----------|----------|----------|
+| Data 1   | Data 2   | Data 3   |
+| Data 4   | Data 5   | Data 6   |
+
+## Code Examples
+
+### JavaScript/TypeScript
+
+```typescript
+interface User {
+  id: number;
+  name: string;
+  email: string;
+}
+
+const getUser = async (id: number): Promise<User> => {
+  const response = await fetch(`/api/users/${id}`);
+  return response.json();
+};
+```
+
+### React Component
+
+```jsx
+import React, { useState } from 'react';
+
+const ExampleComponent = () => {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <h2>Count: {count}</h2>
+      <button onClick={() => setCount(count + 1)}>
+        Increment
+      </button>
+    </div>
+  );
+};
+
+export default ExampleComponent;
+```
+
+### CSS
+
+```css
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.button {
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: #0051cc;
+}
+```
+
+## Blockquotes
+
+> "You can use blockquotes to highlight important quotes or key takeaways from your article. They stand out visually and draw the reader's attention."
+
+## Horizontal Rules
+
+You can use horizontal rules to separate major sections:
 
 ---
 
-*Optional footer note or question for readers to engage with in comments.*
+## Advanced MDX Features
+
+### Custom Components
+
+Since this is an MDX file, you can import and use React components:
+
+```jsx
+import CustomComponent from '@/components/CustomComponent';
+
+<CustomComponent prop="value" />
+```
+
+### Inline JSX
+
+You can also use inline JSX for dynamic content:
+
+<div style={{ backgroundColor: '#f0f0f0', padding: '1rem', borderRadius: '4px' }}>
+  This is a custom styled div using inline JSX!
+</div>
+
+## Best Practices
+
+1. **Structure your content** with clear headings and sections
+2. **Use code examples** to illustrate your points
+3. **Add images** to break up text and provide visual interest
+4. **Include links** to relevant resources and documentation
+5. **Keep paragraphs short** for better readability
+6. **Use lists** to organize information clearly
+
+## Conclusion
+
+Wrap up your blog post with a summary of key points and potentially a call to action. You might want to:
+
+- Summarize the main takeaways
+- Suggest next steps for readers
+- Link to related posts or resources
+- Invite readers to comment or share
+
+## Additional Resources
+
+- [Resource 1](https://example.com)
+- [Resource 2](https://example.com)
+- [Resource 3](https://example.com)
+
+---
+
+*Thank you for reading! If you found this helpful, consider subscribing to the newsletter for more content like this.*

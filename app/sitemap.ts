@@ -1,20 +1,15 @@
 import { MetadataRoute } from 'next'
+import { getAllPosts } from '@/lib/blog'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://yourdomain.com' // Replace with your actual domain
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://localhost:3000'
 
-  // These would be dynamically generated from your blog posts
-  const blogPosts = [
-    'future-of-ai',
-    'best-productivity-apps',
-    'apple-vision-pro-review',
-    'quantum-computing-explained',
-    'web3-myths-reality',
-  ]
-
-  const blogUrls = blogPosts.map((slug) => ({
-    url: `${baseUrl}/blog/${slug}`,
-    lastModified: new Date(),
+  // Dynamically get all blog posts
+  const posts = getAllPosts()
+  
+  const blogUrls = posts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.date),
     changeFrequency: 'weekly' as const,
     priority: 0.8,
   }))
@@ -36,12 +31,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/about`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/topics`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
       priority: 0.7,
     },
     ...blogUrls,

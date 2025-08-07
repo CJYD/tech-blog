@@ -36,6 +36,19 @@ yarn-error.log*
 # vercel
 .vercel
 
+# netlify
+.netlify
+netlify/functions/.cache
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db

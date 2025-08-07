@@ -1,6 +1,5 @@
-import Link from 'next/link';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
+import Header from '@/components/Layout/Header';
+import Footer from '@/components/Layout/Footer';
 
 export default function AboutPage() {
 
@@ -24,7 +23,7 @@ export default function AboutPage() {
             <div className="max-w-3xl mx-auto">
             {/* Story */}
             <div className="max-w-none">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-6">Hey, I'm Christian</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-6">Hey, I&apos;m Christian</h2>
               
               <p className="text-gray-600 mb-4 text-lg">
                 I&apos;m an aspiring software developer who&apos;s been fascinated by technology for as long as I can remember. 

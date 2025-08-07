@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
+import Header from '@/components/Layout/Header';
+import Footer from '@/components/Layout/Footer';
 import { getPostBySlug, getAllPosts, getRelatedPosts } from '@/lib/blog';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
@@ -17,20 +17,31 @@ export async function generateStaticParams() {
   }));
 }
 
+// Type definitions for MDX components
+interface MDXComponentProps {
+  children?: React.ReactNode;
+  className?: string;
+  [key: string]: unknown;
+}
+
+interface CodeComponentProps extends MDXComponentProps {
+  className?: string;
+}
+
 // Custom components for MDX
 const components = {
-  h1: (props: any) => <h1 className="text-4xl font-bold text-gray-900 mb-4" {...props} />,
-  h2: (props: any) => <h2 className="text-2xl font-semibold text-gray-900 mt-12 mb-4" {...props} />,
-  h3: (props: any) => <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3" {...props} />,
-  p: (props: any) => <p className="text-gray-700 leading-relaxed mb-6" {...props} />,
-  a: (props: any) => <a className="text-cyan-400 no-underline hover:underline" {...props} />,
-  ul: (props: any) => <ul className="list-disc pl-6 space-y-2 mb-6" {...props} />,
-  ol: (props: any) => <ol className="list-decimal pl-6 space-y-2 mb-6" {...props} />,
-  li: (props: any) => <li className="text-gray-700" {...props} />,
-  blockquote: (props: any) => (
+  h1: (props: MDXComponentProps) => <h1 className="text-4xl font-bold text-gray-900 mb-4" {...props} />,
+  h2: (props: MDXComponentProps) => <h2 className="text-2xl font-semibold text-gray-900 mt-12 mb-4" {...props} />,
+  h3: (props: MDXComponentProps) => <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3" {...props} />,
+  p: (props: MDXComponentProps) => <p className="text-gray-700 leading-relaxed mb-6" {...props} />,
+  a: (props: MDXComponentProps) => <a className="text-cyan-400 no-underline hover:underline" {...props} />,
+  ul: (props: MDXComponentProps) => <ul className="list-disc pl-6 space-y-2 mb-6" {...props} />,
+  ol: (props: MDXComponentProps) => <ol className="list-decimal pl-6 space-y-2 mb-6" {...props} />,
+  li: (props: MDXComponentProps) => <li className="text-gray-700" {...props} />,
+  blockquote: (props: MDXComponentProps) => (
     <blockquote className="border-l-4 border-cyan-400 pl-4 text-gray-600 italic my-6" {...props} />
   ),
-  code: ({ children, ...props }: any) => {
+  code: ({ children, ...props }: CodeComponentProps) => {
     // Check if this is an inline code block
     const isInline = !props.className;
     if (isInline) {
@@ -42,31 +53,32 @@ const components = {
     }
     return <code {...props}>{children}</code>;
   },
-  pre: (props: any) => (
+  pre: (props: MDXComponentProps) => (
     <pre className="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto mb-6" {...props} />
   ),
-  hr: (props: any) => <hr className="border-t border-gray-200 my-8" {...props} />,
-  table: (props: any) => (
+  hr: (props: MDXComponentProps) => <hr className="border-t border-gray-200 my-8" {...props} />,
+  table: (props: MDXComponentProps) => (
     <div className="overflow-x-auto mb-6">
       <table className="min-w-full divide-y divide-gray-200" {...props} />
     </div>
   ),
-  th: (props: any) => (
+  th: (props: MDXComponentProps) => (
     <th className="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" {...props} />
   ),
-  td: (props: any) => (
+  td: (props: MDXComponentProps) => (
     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700" {...props} />
   ),
 };
 
-export default function BlogPost({ params }: { params: { slug: string } }) {
-  const post = getPostBySlug(params.slug);
+export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
 
   if (!post) {
     notFound();
   }
 
-  const relatedPosts = getRelatedPosts(params.slug, 3);
+  const relatedPosts = getRelatedPosts(slug, 3);
 
   return (
     <div className="min-h-screen bg-white flex flex-col">

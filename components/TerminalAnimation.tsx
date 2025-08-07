@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 interface TerminalLine {
   text: string;
@@ -16,7 +17,7 @@ export default function TerminalAnimation() {
   const [showCursor, setShowCursor] = useState(true);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
 
-  const lines: TerminalLine[] = [
+  const lines = useMemo<TerminalLine[]>(() => [
     { text: '$ whoami', type: 'command', speed: 30 },
     { text: 'Tech enthusiast & software developer', type: 'output', speed: 50 },
     { text: '', type: 'output' },
@@ -33,12 +34,12 @@ export default function TerminalAnimation() {
     { text: '', type: 'output' },
     { text: '$ echo "Let\'s explore together!"', type: 'command', speed: 30 },
     { text: "Let's explore together!", type: 'output', speed: 50 },
-  ];
+  ], []);
 
   // Initialize displayed text array with empty strings
   useEffect(() => {
     setDisplayedText(lines.map(() => ''));
-  }, []);
+  }, [lines]);
 
   // Typewriter effect
   useEffect(() => {
@@ -83,7 +84,7 @@ export default function TerminalAnimation() {
       }, 300);
       return () => clearTimeout(timer);
     }
-  }, [currentLineIndex, currentCharIndex]);
+  }, [currentLineIndex, currentCharIndex, lines]);
 
   // Cursor blink
   useEffect(() => {
@@ -161,12 +162,12 @@ export default function TerminalAnimation() {
           >
             Recent Posts
           </a>
-          <a 
+          <Link 
             href="/blog" 
             className="px-6 py-3 border-2 border-gray-900 text-gray-900 font-semibold hover:bg-gray-900 hover:text-white transition-all text-center rounded"
           >
             Blog Archive
-          </a>
+          </Link>
         </motion.div>
       </div>
     </div>

@@ -2,8 +2,8 @@
 
 import { useEffect } from 'react';
 import Link from 'next/link';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
+import Header from '@/components/Layout/Header';
+import Footer from '@/components/Layout/Footer';
 
 export default function Error({
   error,
@@ -68,7 +68,7 @@ export default function Error({
             <h1 className="text-6xl font-bold text-gray-900 mb-4">500</h1>
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">Something went wrong!</h2>
             <p className="text-gray-600 max-w-md mx-auto mb-2">
-              An unexpected error occurred. Don't worry, we've logged this issue 
+              An unexpected error occurred. Don&apos;t worry, we&apos;ve logged this issue 
               and will look into it.
             </p>
             {error.digest && (

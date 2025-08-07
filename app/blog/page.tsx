@@ -1,14 +1,13 @@
-import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
-import { getAllPosts, getAllTags } from '@/lib/blog';
+import { Fragment } from 'react';
+import Header from '@/components/Layout/Header';
+import Footer from '@/components/Layout/Footer';
+import { getAllPosts } from '@/lib/blog';
 
 export default function BlogPage() {
   // Get all blog posts dynamically
   const blogPosts = getAllPosts();
-  const allTags = getAllTags();
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <Header />
@@ -30,7 +29,7 @@ export default function BlogPage() {
               const isEven = index % 2 === 0;
               
               return (
-                <React.Fragment key={post.slug}>
+                <Fragment key={post.slug}>
                   <article
                     className={`flex flex-col lg:flex-row items-center gap-8 lg:gap-12 animate-fade-in ${
                       isEven ? '' : 'lg:flex-row-reverse'
@@ -132,7 +131,7 @@ export default function BlogPage() {
                 {index < blogPosts.length - 1 && (
                   <hr className="border-t border-gray-200 my-16" />
                 )}
-              </React.Fragment>
+              </Fragment>
               );
             })}
           </div>

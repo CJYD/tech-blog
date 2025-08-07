@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
+import Header from '@/components/Layout/Header';
+import Footer from '@/components/Layout/Footer';
 
 export default function NotFound() {
   return (
@@ -26,7 +26,7 @@ export default function NotFound() {
                 bash: cd: /page-not-found: No such file or directory
               </div>
               <div className="text-gray-400">
-                <span className="text-cyan-400">$</span> echo "Error 404"
+                <span className="text-cyan-400">$</span> echo &quot;Error 404&quot;
               </div>
               <div className="text-white">
                 Error 404
@@ -50,8 +50,8 @@ export default function NotFound() {
             <h1 className="text-6xl font-bold text-gray-900 mb-4">404</h1>
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">Page Not Found</h2>
             <p className="text-gray-600 max-w-md mx-auto">
-              The page you're looking for doesn't exist or has been moved. 
-              Let's get you back on track.
+              The page you&apos;re looking for doesn&apos;t exist or has been moved. 
+              Let&apos;s get you back on track.
             </p>
           </div>
 
