@@ -1,33 +1,125 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tech Blog
+
+A modern, minimalist tech blog built with Next.js 15, TypeScript, and MDX. Features a clean design inspired by developer aesthetics, with full support for dark mode, mobile responsiveness, and newsletter subscriptions.
+
+## Features
+
+- 📱 **Mobile-First Design** - Optimized for all devices
+- 🌓 **Dark/Light Mode** - System preference detection with manual toggle
+- ✍️ **MDX Support** - Write posts in Markdown with React components
+- 📧 **Newsletter Integration** - ConvertKit API for email subscriptions
+- ⚡ **Lightning Fast** - Static generation with Next.js 15
+- 🔍 **SEO Optimized** - Sitemap, meta tags, and Open Graph support
+- 🎨 **JetBrains Mono Font** - With ligature support for code blocks
+- 🚀 **Ready for Vercel** - One-click deployment
+
+## Tech Stack
+
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Content**: MDX
+- **Email**: ConvertKit
+- **Deployment**: Vercel
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18+ 
+- npm or yarn
+- ConvertKit account (optional, for newsletter)
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/yourusername/tech-blog.git
+cd tech-blog
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Set up environment variables:
+```bash
+cp .env.local.example .env.local
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Edit `.env.local` with your ConvertKit API credentials:
+```
+CONVERTKIT_API_KEY=your_api_key_here
+CONVERTKIT_FORM_ID=your_form_id_here
+```
 
-## Learn More
+4. Run the development server:
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Open [http://localhost:3000](http://localhost:3000) to view your blog.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+tech-blog/
+├── app/                    # Next.js app directory
+│   ├── api/               # API routes
+│   ├── blog/              # Blog pages
+│   ├── about/             # About page
+│   └── layout.tsx         # Root layout
+├── components/            # React components
+│   ├── Layout/           # Header & Footer
+│   ├── Newsletter.tsx    # Email signup
+│   └── ThemeToggle.tsx   # Dark mode toggle
+├── content/              # MDX blog posts
+│   └── posts/           # Blog post files
+├── lib/                  # Utility functions
+└── public/              # Static assets
+```
+
+## Writing Blog Posts
+
+Create new blog posts as MDX files in `content/posts/`:
+
+```mdx
+---
+title: "Your Post Title"
+date: "2024-01-20"
+author: "Your Name"
+excerpt: "A brief description of your post"
+tags: ["Tech", "AI", "Review"]
+readTime: "5 min read"
+---
+
+# Your Post Title
+
+Your content here...
+```
+
+## Customization
+
+### Update Site Information
+
+Edit `app/layout.tsx` to update:
+- Site title and description
+- Author information
+- Social media links
+
+### Styling
+
+- Tailwind configuration: Edit CSS variables in `app/globals.css`
+- Fonts: Configured in `app/layout.tsx`
+- Colors: Update Tailwind classes throughout components
+
+### ConvertKit Setup
+
+1. Sign up at [ConvertKit](https://convertkit.com)
+2. Create a form in your ConvertKit dashboard
+3. Get your API key from Account Settings
+4. Add credentials to `.env.local`
 
 ## Deploy on Vercel
 
