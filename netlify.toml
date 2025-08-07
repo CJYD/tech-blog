@@ -12,8 +12,8 @@
   publish = ".next"
 
 [build.environment]
-  # Node version
-  NODE_VERSION = "18"
+  # Node version - ensure we use Node 18 or higher for Next.js 15
+  NODE_VERSION = "20"
   # Next.js specific
   NEXT_TELEMETRY_DISABLED = "1"
 
