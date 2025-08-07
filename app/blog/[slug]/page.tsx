@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import Header from '@/components/Layout/Header';
-import Footer from '@/components/Layout/Footer';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 import { getPostBySlug, getAllPosts, getRelatedPosts } from '@/lib/blog';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import Header from '@/components/Layout/Header';
-import Footer from '@/components/Layout/Footer';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 import TerminalAnimation from '@/components/TerminalAnimation';
 import EmailSubscribe from '@/components/EmailSubscribe';
 import { getRecentPosts } from '@/lib/blog';
