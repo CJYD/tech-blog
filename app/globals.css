@@ -17,8 +17,8 @@
     --color-text: #1a1a1a;
     --color-text-muted: #6b7280;
     --color-border: #e5e7eb;
-    --color-accent: #0969da;
-    --color-accent-hover: #0860ca;
+    --color-accent: #00bcd4;
+    --color-accent-hover: #00acc1;
     --color-code-bg: #f6f8fa;
   }
 
@@ -70,8 +70,6 @@
 
   a:hover {
     color: var(--color-accent-hover);
-    text-decoration: underline;
-    text-underline-offset: 2px;
   }
 
   code {
@@ -166,7 +164,7 @@
 
   .terminal-prompt::before {
     content: '$ ';
-    color: #1a7f37;
+    color: #00bcd4;
     @apply font-semibold;
   }
 
@@ -214,13 +212,13 @@
   }
 
   .text-terminal-green { color: #1a7f37; }
-  .text-terminal-blue { color: #0969da; }
+  .text-terminal-blue { color: #00bcd4; }
   .text-terminal-orange { color: #fb8500; }
   .text-terminal-red { color: #d1242f; }
   .text-terminal-purple { color: #8250df; }
   
   .bg-terminal-green { background-color: #1a7f37; }
-  .bg-terminal-blue { background-color: #0969da; }
+  .bg-terminal-blue { background-color: #00bcd4; }
   .bg-terminal-orange { background-color: #fb8500; }
   .bg-terminal-red { background-color: #d1242f; }
   .bg-terminal-purple { background-color: #8250df; }

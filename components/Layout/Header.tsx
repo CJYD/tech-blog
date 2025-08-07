@@ -13,8 +13,8 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50">
       <nav className="container flex items-center justify-between h-16">
-        <Link href="/" className="font-semibold text-gray-900 hover:text-terminal-blue transition-colors">
-          <span className="terminal-prompt">cd ~/blog</span>
+        <Link href="/" className="font-semibold text-gray-900 hover:text-cyan-400 transition-colors">
+          <span className="terminal-prompt">cd ~/devnotes</span>
         </Link>
         
         <div className="flex items-center gap-8">

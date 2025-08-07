@@ -9,7 +9,7 @@ const MDXComponents = {
     
     if (isInternal) {
       return (
-        <Link href={href} {...props} className="text-blue-500 hover:underline">
+        <Link href={href} {...props} className="text-cyan-400 hover:text-cyan-500">
           {children}
         </Link>
       )
@@ -20,7 +20,7 @@ const MDXComponents = {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-blue-500 hover:underline"
+        className="text-cyan-400 hover:text-cyan-500"
         {...props}
       >
         {children}

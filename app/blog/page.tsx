@@ -3,39 +3,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-
-// Sample blog posts - in production this would come from MDX files or CMS
-const blogPosts = [
-  {
-    slug: 'future-of-ai-2025',
-    title: 'AI Revolution',
-    subtitle: 'The Future of Artificial Intelligence',
-    excerpt: 'This post explores the cutting-edge developments in artificial intelligence and machine learning, examining how these technologies are reshaping software development, creative industries, and our daily interactions with technology.',
-    date: '2024-01-15',
-    readTime: '5 min read',
-    tags: ['AI', 'Future Tech', 'Machine Learning'],
-    coverImage: '/images/blog/ai-future.jpg',
-    bgGradient: 'from-purple-500 via-pink-400 to-orange-300',
-    blogNumber: 2  // Second blog chronologically
-  },
-  {
-    slug: 'building-with-nextjs-14',
-    title: 'Next.js 14',
-    subtitle: 'Building Modern Web Applications',
-    excerpt: 'This comprehensive guide shares practical lessons learned from migrating large-scale applications to the app router, leveraging server components, and optimizing performance in production environments.',
-    date: '2024-01-10',
-    readTime: '12 min read',
-    tags: ['Next.js', 'React', 'Web Development'],
-    coverImage: '/images/blog/nextjs.png',
-    bgGradient: 'from-blue-500 via-teal-400 to-green-300',
-    blogNumber: 1  // First blog chronologically
-  }
-];
-
-// Get unique tags for filtering
-const allTags = Array.from(new Set(blogPosts.flatMap(post => post.tags))).sort();
+import { getAllPosts, getAllTags } from '@/lib/blog';
 
 export default function BlogPage() {
+  // Get all blog posts dynamically
+  const blogPosts = getAllPosts();
+  const allTags = getAllTags();
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <Header />
@@ -96,7 +69,7 @@ export default function BlogPage() {
                     <div className="flex items-center gap-4 lg:gap-6">
                       <div className="border-2 border-gray-900 px-4 py-3 self-center">
                         <div className="text-xs font-bold tracking-wider text-gray-700">
-                          BLOG {post.blogNumber.toString().padStart(2, '0')}
+                          BLOG {(blogPosts.length - index).toString().padStart(2, '0')}
                         </div>
                         <div className="text-xs font-medium text-gray-500 mt-1">
                           {new Date(post.date).toLocaleDateString('en-US', { 
