@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Fragment } from 'react';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
+import { Header, Footer } from '@/components/layout';
 import { getAllPosts } from '@/lib/blog';
 
 export default function BlogPage() {
