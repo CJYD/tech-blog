@@ -10,11 +10,10 @@
   
   # Directory that contains the deploy-ready files
   publish = ".next"
-  
-  # Node version
-  environment = { NODE_VERSION = "18" }
 
 [build.environment]
+  # Node version
+  NODE_VERSION = "18"
   # Next.js specific
   NEXT_TELEMETRY_DISABLED = "1"
 
