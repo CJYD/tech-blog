@@ -6,63 +6,58 @@ A modern, performant tech blog built with Next.js 15, TypeScript, and MDX. Featu
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.0-38B2AC)
 ![MDX](https://img.shields.io/badge/MDX-3.0-yellow)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/YOUR-BADGE-ID/deploy-status)](https://app.netlify.com/sites/YOUR-SITE-NAME/deploys)
 
-## ✨ Features
+## Features
 
-- 📝 **MDX Blog Posts** - Write posts in Markdown with React component support
-- 🎨 **Terminal-Inspired Design** - Unique, developer-friendly aesthetic
-- 🚀 **Optimized Performance** - Static generation, image optimization, minimal bundle size
-- 📱 **Fully Responsive** - Looks great on all devices
-- 🔍 **SEO Optimized** - Meta tags, Open Graph, Twitter Cards, sitemap
-- 📧 **Newsletter Integration** - ConvertKit integration for email subscriptions
-- 🔒 **Security Headers** - Production-ready security configurations
-- ⚡ **Fast Builds** - Optimized for Netlify deployment
+- **MDX Blog Posts** - Write posts in Markdown with React component support
+- **Terminal-Inspired Design** - Unique, developer-friendly aesthetic
+- **Optimized Performance** - Static generation, image optimization, minimal bundle size
+- **Fully Responsive** - Looks great on all devices
+- **SEO Optimized** - Meta tags, Open Graph, Twitter Cards, sitemap
+- **Newsletter Integration** - ConvertKit integration for email subscriptions
+- **Security Headers** - Production-ready security configurations
 
-## 🚀 Quick Start
+## Prerequisites
 
-### Prerequisites
-
-- Node.js 18+ 
+- Node.js 18 or higher
 - npm or yarn
 - Git
 
-### Installation
+## Installation
 
-1. Clone the repository:
+Clone the repository
 ```bash
 git clone https://github.com/yourusername/tech-blog.git
 cd tech-blog
 ```
 
-2. Install dependencies:
+Install dependencies
 ```bash
 npm install
 ```
 
-3. Create environment variables:
+Create environment variables
 ```bash
 cp .env.local.example .env.local
 ```
 
-4. Update `.env.local` with your values:
+Update `.env.local` with your values
 ```env
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 NEXT_PUBLIC_SITE_NAME="Your Blog Name"
 NEXT_PUBLIC_AUTHOR_NAME="Your Name"
-# Add ConvertKit credentials if using newsletter
 CONVERTKIT_API_KEY=your_api_key
 CONVERTKIT_FORM_ID=your_form_id
 ```
 
-5. Run the development server:
+Run the development server
 ```bash
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to see your blog.
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 tech-blog/
@@ -71,7 +66,7 @@ tech-blog/
 │   ├── api/               # API routes
 │   └── layout.tsx         # Root layout
 ├── components/            # React components
-│   └── Layout/           # Header/Footer components
+│   └── layout/           # Header/Footer components
 ├── content/              # Blog content
 │   └── posts/           # MDX blog posts
 ├── lib/                  # Utility functions
@@ -81,9 +76,9 @@ tech-blog/
 └── styles/             # Global styles
 ```
 
-## ✍️ Writing Blog Posts
+## Writing Blog Posts
 
-Create a new `.mdx` file in `content/posts/`:
+Create a new `.mdx` file in `content/posts/`
 
 ```mdx
 ---
@@ -91,25 +86,26 @@ title: 'My Awesome Post'
 date: '2024-01-15'
 excerpt: 'A brief description of your post'
 tags: ['nextjs', 'react', 'typescript']
+coverImage: '/images/blog/your-image.png'
 readTime: '5 min read'
 ---
 
 # Your content here
 
-Write your post using Markdown and React components!
+Write your post using Markdown and React components.
 ```
 
-See `content/posts/blog-post-template.mdx.example` for a complete template.
+## Deployment
 
-## 🚢 Deploy to Netlify
+### Deploy to Vercel
 
-### Option 1: One-Click Deploy
+**Option 1: One-Click Deploy**
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/CJYD/tech-blog)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/tech-blog)
 
-### Option 2: Manual Deploy
+**Option 2: Manual Deploy**
 
-1. **Push to GitHub:**
+1. Push to GitHub
 ```bash
 git add .
 git commit -m "Initial commit"
@@ -117,33 +113,22 @@ git remote add origin https://github.com/yourusername/tech-blog.git
 git push -u origin main
 ```
 
-2. **Connect to Netlify:**
-   - Log in to [Netlify](https://app.netlify.com)
-   - Click "Add new site" → "Import an existing project"
-   - Choose GitHub and select your repository
+2. Import to Vercel
+   - Log in to [Vercel](https://vercel.com)
+   - Click "Add New Project"
+   - Import your GitHub repository
+   - Configure environment variables
+   - Deploy
 
-3. **Configure Build Settings:**
-   - **Base directory:** (leave empty)
-   - **Build command:** `npm run build`
-   - **Publish directory:** `.next`
+3. Set Environment Variables in Vercel Dashboard
+```
+NEXT_PUBLIC_SITE_URL=https://your-site.vercel.app
+NEXT_PUBLIC_SITE_NAME="Your Blog Name"
+CONVERTKIT_API_KEY=your_api_key
+CONVERTKIT_FORM_ID=your_form_id
+```
 
-4. **Set Environment Variables:**
-   - Go to Site Configuration → Environment Variables
-   - Add your production variables:
-     ```
-     NEXT_PUBLIC_SITE_URL=https://your-site.netlify.app
-     NEXT_PUBLIC_SITE_NAME="Your Blog Name"
-     CONVERTKIT_API_KEY=your_api_key
-     CONVERTKIT_FORM_ID=your_form_id
-     ```
-
-5. **Deploy!** Your site will be live at `https://your-site-name.netlify.app`
-
-### Netlify Configuration
-
-The project includes a `netlify.toml` file for optimal configuration. You can customize it as needed.
-
-## 🔧 Configuration
+## Configuration
 
 ### Environment Variables
 
@@ -161,7 +146,7 @@ Edit `lib/site-config.ts` to update:
 - Author information
 - Social media links
 
-## 📝 Available Scripts
+## Available Scripts
 
 ```bash
 npm run dev        # Start development server
@@ -170,37 +155,37 @@ npm start          # Start production server
 npm run lint       # Run ESLint
 ```
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Framework:** [Next.js 15](https://nextjs.org/)
 - **Language:** [TypeScript](https://www.typescriptlang.org/)
 - **Styling:** [Tailwind CSS 4](https://tailwindcss.com/)
 - **Content:** [MDX](https://mdxjs.com/)
 - **Newsletter:** [ConvertKit](https://convertkit.com/)
-- **Deployment:** [Netlify](https://www.netlify.com/)
+- **Deployment:** [Vercel](https://vercel.com/)
 
-## 📊 Performance
+## Performance
 
-- ⚡ **Lighthouse Score:** 95+ Performance
-- 📦 **Bundle Size:** <100KB shared JS
-- 🖼️ **Image Optimization:** Automatic with Next.js Image
-- 🚀 **Static Generation:** Pre-rendered pages for speed
+- **Lighthouse Score:** 95+ Performance
+- **Bundle Size:** <100KB shared JS
+- **Image Optimization:** Automatic with Next.js Image
+- **Static Generation:** Pre-rendered pages for speed
 
-## 🤝 Contributing
+## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome. Please feel free to submit a Pull Request.
 
-## 📄 License
+## License
 
-MIT License - feel free to use this for your own blog!
+MIT License - feel free to use this for your own blog.
 
-## 🐛 Support
+## Support
 
 If you encounter any issues:
-1. Check the [deployment guide](./DEPLOYMENT.md)
+1. Check the documentation
 2. Open an issue on GitHub
 3. Contact me on Twitter
 
 ---
 
-Built with ❤️ using Next.js and deployed on Netlify
+Built with Next.js and deployed on Vercel
